@@ -293,11 +293,123 @@ export default function HRNotification({ currentHrId }) {
           </div>
         </div>
       )}
+<style>{`
+/* =====================================================
+   🌌 HRNotification.jsx - Full Dark Glass Theme
+   Matches HRDashboard, HRClaims, HREmployees & HRFraud
+===================================================== */
 
-      <style>{`
-        .transition-all { transition: all 0.2s ease-in-out; }
-        .card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,0.1) !important; }
-      `}</style>
+/* ----------------------------
+   Container text default
+----------------------------- */
+.container-fluid {
+  color: #e5e7eb !important;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* ----------------------------
+   Page headers
+----------------------------- */
+h1, h2, h3, h4, h5, h6, strong {
+  color: #f8fafc !important;
+  font-weight: 600;
+}
+
+p, span, small, ul, li {
+  color: #c7d2fe !important;
+}
+
+/* ----------------------------
+   Notification Cards
+----------------------------- */
+.card {
+  background: rgba(255, 255, 255, 0.06) !important;
+  backdrop-filter: blur(20px) !important;
+  border-radius: 22px !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  color: #e5e7eb !important;
+}
+
+.card h6 {
+  color: #f8fafc !important;
+}
+
+.card p, .card small {
+  color: #c7d2fe !important;
+}
+
+/* Hover and selection effects */
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2) !important;
+}
+
+.border-warning { border-color: rgba(255,193,7,.5) !important; }
+.border-primary { border-color: rgba(13,110,253,.5) !important; }
+
+/* ----------------------------
+   Badges
+----------------------------- */
+.badge,
+.badge.bg-primary,
+.badge.bg-secondary,
+.badge.bg-success,
+.badge.bg-warning,
+.badge.bg-danger {
+  background: rgba(255,255,255,.15) !important;
+  color: #fff !important;
+  border-radius: 12px;
+}
+
+.badge.bg-primary { background-color: rgba(13,110,253,.2) !important; color: #0d6efd !important; }
+.badge.bg-secondary { background-color: rgba(108,117,125,.2) !important; color: #6c757d !important; }
+.badge.bg-success { background-color: rgba(25,135,84,.2) !important; color: #198754 !important; }
+.badge.bg-warning { background-color: rgba(255,193,7,.2) !important; color: #ffc107 !important; }
+.badge.bg-danger { background-color: rgba(220,53,69,.2) !important; color: #dc3545 !important; }
+
+/* ----------------------------
+   Form Inputs (Checkboxes, Radio Buttons)
+----------------------------- */
+.form-check-input {
+  background-color: rgba(255,255,255,.08) !important;
+  border: 1px solid rgba(255,255,255,.12) !important;
+}
+
+/* ----------------------------
+   Buttons
+----------------------------- */
+.btn-primary,
+.btn-success,
+.btn-warning,
+.btn-outline-primary,
+.btn-outline-success,
+.btn-outline-warning,
+.btn-outline-light,
+.btn-light {
+  border-radius: 14px;
+}
+
+/* Floating selection bar */
+.position-fixed {
+  background: rgba(13,110,253,.1) !important;
+  backdrop-filter: blur(15px);
+  border-radius: 50px;
+  color: #f8fafc !important;
+}
+
+.position-fixed button.btn-light {
+  color: #0d6efd !important;
+  background: rgba(255,255,255,.1) !important;
+  border: 1px solid rgba(255,255,255,.12);
+}
+
+/* ----------------------------
+   Misc
+----------------------------- */
+.transition-all { transition: all 0.2s ease-in-out; }
+.cursor-pointer { cursor: pointer; }
+`}</style>
+
     </div>
   );
 }

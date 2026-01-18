@@ -349,20 +349,200 @@ export default function HREmployees({
       )}
 
       <style>{`
-        .cursor-pointer {
-          cursor: pointer;
-        }
-        .hover-shadow-lg:hover {
-          box-shadow: 0 1rem 3rem rgba(0,0,0,.175) !important;
-          transform: translateY(-2px);
-        }
-        .transition-all {
-          transition: all 0.3s ease;
-        }
-        .table-active {
-          background-color: rgba(0, 123, 255, 0.1) !important;
-        }
-      `}</style>
+/* =====================================================
+   🌌 HREmployees.jsx - Full Dark Glass Theme
+   Matches HRDashboard & HRClaims style
+===================================================== */
+
+/* ----------------------------
+   Container text default
+----------------------------- */
+.container-fluid {
+  color: #e5e7eb !important;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* ----------------------------
+   Headers & Titles
+----------------------------- */
+h1, h2, h3, h4, h5, h6, strong {
+  color: #f8fafc !important;
+  font-weight: 600;
+}
+
+p, span, small {
+  color: #c7d2fe !important;
+}
+
+/* ----------------------------
+   Glass Cards (KPI, Tables, Controls, Modal Cards)
+----------------------------- */
+.card {
+  background: rgba(255, 255, 255, 0.06) !important;
+  backdrop-filter: blur(20px) !important;
+  border-radius: 22px !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  color: #e5e7eb !important;
+}
+
+/* Card headers */
+.card .card-header {
+  background: rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: #f8fafc !important;
+}
+
+/* Card body */
+.card .card-body {
+  background: transparent !important;
+  color: #c7d2fe !important;
+}
+
+/* ----------------------------
+   KPI Cards (Top Statistics)
+----------------------------- */
+.card.bg-primary, 
+.card.bg-success,
+.card.bg-warning {
+  background: linear-gradient(
+    135deg,
+    rgba(99,102,241,.25),
+    rgba(34,211,238,.18)
+  ) !important;
+  color: #f8fafc !important;
+  box-shadow: 0 20px 55px rgba(0,0,0,.5);
+}
+
+/* KPI icons & numbers */
+.text-primary, .text-success, .text-warning {
+  color: #f8fafc !important;
+}
+
+/* ----------------------------
+   Tables inside cards
+----------------------------- */
+table,
+thead,
+tbody,
+tr,
+th,
+td {
+  background: transparent !important;
+  color: #e5e7eb !important;
+  border-color: rgba(255,255,255,.12) !important;
+}
+
+thead.table-light th {
+  background: rgba(255,255,255,.08) !important;
+  color: #f8fafc !important;
+}
+
+/* Table hover effect */
+table tbody tr:hover {
+  background: rgba(255,255,255,.12) !important;
+}
+
+/* Selected / active row */
+.table-active {
+  background-color: rgba(0,123,255,0.1) !important;
+}
+
+/* ----------------------------
+   Badges
+----------------------------- */
+.badge,
+.badge.bg-light,
+.badge.bg-success,
+.badge.bg-warning,
+.badge.bg-secondary {
+  background: rgba(255,255,255,.15) !important;
+  color: #fff !important;
+  border-radius: 12px;
+}
+
+/* Specific status badges */
+.badge.bg-success { background-color: rgba(34,197,94,.2) !important; color: #16a34a !important; }
+.badge.bg-warning { background-color: rgba(234,179,8,.2) !important; color: #ca8a04 !important; }
+.badge.bg-secondary { background-color: rgba(156,163,175,.2) !important; color: #6b7280 !important; }
+
+/* ----------------------------
+   Alerts inside cards or modals
+----------------------------- */
+.alert,
+.alert-light,
+.alert-secondary,
+.alert-warning,
+.alert-success {
+  background: rgba(255,255,255,.08) !important;
+  color: #f8fafc !important;
+  border: 1px solid rgba(255,255,255,.12) !important;
+}
+
+/* ----------------------------
+   Modals
+----------------------------- */
+.modal-content {
+  background: rgba(255,255,255,.06) !important;
+  backdrop-filter: blur(20px) !important;
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,.18);
+  color: #e5e7eb !important;
+}
+
+.modal-header,
+.modal-footer {
+  background: rgba(255,255,255,.08) !important;
+  color: #f8fafc !important;
+  border-bottom: 1px solid rgba(255,255,255,.12);
+}
+
+.modal-body {
+  background: transparent !important;
+  color: #c7d2fe !important;
+}
+
+/* ----------------------------
+   Buttons
+----------------------------- */
+.btn-primary,
+.btn-success,
+.btn-warning,
+.btn-outline-primary,
+.btn-outline-success,
+.btn-outline-warning,
+.btn-outline-secondary {
+  border-radius: 14px;
+}
+
+/* ----------------------------
+   Form Inputs
+----------------------------- */
+.form-control,
+.form-select,
+.input-group-text {
+  background: rgba(255,255,255,.08) !important;
+  color: #e5e7eb !important;
+  border: 1px solid rgba(255,255,255,.12) !important;
+}
+
+/* ----------------------------
+   Misc utility
+----------------------------- */
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.hover-shadow-lg:hover {
+  box-shadow: 0 1rem 3rem rgba(0,0,0,.175) !important;
+  transform: translateY(-2px);
+}
+
+.transition-all {
+  transition: all 0.3s ease;
+}
+`}</style>
+
     </div>
   );
 }

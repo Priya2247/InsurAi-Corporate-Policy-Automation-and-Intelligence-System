@@ -643,14 +643,243 @@ export default function HRClaims({
         </div>
       )}
 
-      <style>{`
-        .cursor-pointer {
-          cursor: pointer;
-        }
-        .table-active {
-          background-color: rgba(0, 123, 255, 0.1) !important;
-        }
-      `}</style>
+      <style>{<style>{`
+/* =====================================================
+   🌌 HRClaims.jsx - Full Dark Glass Theme
+   Matches HRDashboard glassmorphic style
+===================================================== */
+
+/* ----------------------------
+   Container text default
+----------------------------- */
+.hr-dashboard, .container-fluid {
+  color: #e5e7eb !important;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* ----------------------------
+   Headers & Titles
+----------------------------- */
+.hr-dashboard h1, .hr-dashboard h2, .hr-dashboard h3,
+.hr-dashboard h4, .hr-dashboard h5, .hr-dashboard h6,
+.hr-dashboard strong {
+  color: #f8fafc !important;
+  font-weight: 600;
+}
+
+/* Paragraphs and small text */
+.hr-dashboard p, .hr-dashboard span, .hr-dashboard small {
+  color: #c7d2fe !important;
+}
+
+/* ----------------------------
+   Glass Cards (KPI, Tables, Controls)
+----------------------------- */
+.hr-dashboard .card {
+  background: rgba(255, 255, 255, 0.06) !important;
+  backdrop-filter: blur(20px) !important;
+  border-radius: 22px !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  color: #e5e7eb !important;
+}
+
+/* Card headers */
+.hr-dashboard .card .card-header {
+  background: rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+  color: #f8fafc !important;
+}
+
+/* Card body */
+.hr-dashboard .card .card-body {
+  background: transparent !important;
+  color: #c7d2fe !important;
+}
+
+/* ----------------------------
+   KPI Cards (top statistics)
+----------------------------- */
+.hr-dashboard .card.bg-primary, 
+.hr-dashboard .card.bg-success,
+.hr-dashboard .card.bg-warning,
+.hr-dashboard .card.bg-danger,
+.hr-dashboard .card.bg-info,
+.hr-dashboard .card.bg-secondary {
+  background: linear-gradient(
+    135deg,
+    rgba(99,102,241,.25),
+    rgba(34,211,238,.18)
+  ) !important;
+  color: #f8fafc !important;
+  box-shadow: 0 20px 55px rgba(0,0,0,.5);
+}
+
+/* KPI icons & numbers */
+.hr-dashboard .card .text-primary,
+.hr-dashboard .card .text-success,
+.hr-dashboard .card .text-warning,
+.hr-dashboard .card .text-danger,
+.hr-dashboard .card .text-info,
+.hr-dashboard .card .text-secondary {
+  color: #f8fafc !important;
+}
+
+/* ----------------------------
+   Tables inside cards
+----------------------------- */
+.hr-dashboard table,
+.hr-dashboard thead,
+.hr-dashboard tbody,
+.hr-dashboard tr,
+.hr-dashboard th,
+.hr-dashboard td {
+  background: transparent !important;
+  color: #e5e7eb !important;
+  border-color: rgba(255,255,255,.12) !important;
+}
+
+.hr-dashboard thead.table-light th {
+  background: rgba(255,255,255,.08) !important;
+  color: #f8fafc !important;
+}
+
+/* Hover effect for table rows */
+.hr-dashboard table tbody tr:hover {
+  background: rgba(255,255,255,.12) !important;
+}
+
+/* ----------------------------
+   Badges
+----------------------------- */
+.hr-dashboard .badge,
+.hr-dashboard .badge.bg-light,
+.hr-dashboard .badge.bg-success,
+.hr-dashboard .badge.bg-warning,
+.hr-dashboard .badge.bg-danger,
+.hr-dashboard .badge.bg-secondary,
+.hr-dashboard .badge.bg-info {
+  background: rgba(255,255,255,.15) !important;
+  color: #fff !important;
+  border-radius: 12px;
+}
+
+/* Specific status badges */
+.hr-dashboard .badge.bg-success { background-color: rgba(34,197,94,.2) !important; color: #16a34a !important; }
+.hr-dashboard .badge.bg-warning { background-color: rgba(234,179,8,.2) !important; color: #ca8a04 !important; }
+.hr-dashboard .badge.bg-danger { background-color: rgba(239,68,68,.2) !important; color: #b91c1c !important; }
+
+/* ----------------------------
+   Alerts inside cards or modals
+----------------------------- */
+.hr-dashboard .alert,
+.hr-dashboard .alert-light,
+.hr-dashboard .alert-secondary,
+.hr-dashboard .alert-warning,
+.hr-dashboard .alert-danger,
+.hr-dashboard .alert-success {
+  background: rgba(255,255,255,.08) !important;
+  color: #f8fafc !important;
+  border: 1px solid rgba(255,255,255,.12) !important;
+}
+
+/* ----------------------------
+   Recent Claims List Group
+----------------------------- */
+.hr-dashboard .list-group,
+.hr-dashboard .list-group-item {
+  background: rgba(255,255,255,.08) !important;
+  color: #e5e7eb !important;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 14px;
+  margin-bottom: 8px;
+  backdrop-filter: blur(14px);
+}
+
+.hr-dashboard .list-group-item:hover {
+  background: rgba(255,255,255,.12) !important;
+  transform: translateY(-2px);
+  transition: all .25s ease;
+}
+
+.hr-dashboard .list-group-item h6,
+.hr-dashboard .list-group-item strong {
+  color: #f8fafc !important;
+}
+
+.hr-dashboard .list-group-item small,
+.hr-dashboard .list-group-item span,
+.hr-dashboard .list-group-item p {
+  color: #c7d2fe !important;
+}
+
+/* ----------------------------
+   Modals
+----------------------------- */
+.hr-dashboard .modal-content {
+  background: rgba(255,255,255,.06) !important;
+  backdrop-filter: blur(20px) !important;
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,.18);
+  color: #e5e7eb !important;
+}
+
+.hr-dashboard .modal-header,
+.hr-dashboard .modal-footer {
+  background: rgba(255,255,255,.08) !important;
+  color: #f8fafc !important;
+  border-bottom: 1px solid rgba(255,255,255,.12);
+}
+
+.hr-dashboard .modal-body {
+  background: transparent !important;
+  color: #c7d2fe !important;
+}
+
+/* ----------------------------
+   Buttons
+----------------------------- */
+.hr-dashboard .btn-primary,
+.hr-dashboard .btn-success,
+.hr-dashboard .btn-warning,
+.hr-dashboard .btn-danger,
+.hr-dashboard .btn-info,
+.hr-dashboard .btn-secondary,
+.hr-dashboard .btn-outline-primary,
+.hr-dashboard .btn-outline-success,
+.hr-dashboard .btn-outline-warning,
+.hr-dashboard .btn-outline-danger,
+.hr-dashboard .btn-outline-secondary,
+.hr-dashboard .btn-outline-info {
+  border-radius: 14px;
+}
+
+/* ----------------------------
+   Form Inputs
+----------------------------- */
+.hr-dashboard .form-control,
+.hr-dashboard .form-select,
+.hr-dashboard .input-group-text {
+  background: rgba(255,255,255,.08) !important;
+  color: #e5e7eb !important;
+  border: 1px solid rgba(255,255,255,.12) !important;
+}
+
+/* ----------------------------
+   Table active / selected row
+----------------------------- */
+.hr-dashboard .table-active {
+  background-color: rgba(0,123,255,0.1) !important;
+}
+
+/* ----------------------------
+   Misc utility
+----------------------------- */
+.hr-dashboard .cursor-pointer {
+  cursor: pointer;
+}
+`}</style>
+}</style>
     </div>
   );
 }

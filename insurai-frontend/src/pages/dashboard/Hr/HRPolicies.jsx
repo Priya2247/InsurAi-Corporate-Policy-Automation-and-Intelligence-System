@@ -625,26 +625,133 @@ export default function HRPolicies({ policies }) {
       )}
 
       <style>{`
-        .cursor-pointer {
-          cursor: pointer;
-        }
-        .hover-shadow-lg:hover {
-          box-shadow: 0 1rem 3rem rgba(0,0,0,.175) !important;
-          transform: translateY(-2px);
-        }
-        .transition-all {
-          transition: all 0.3s ease;
-        }
-        .max-h-200 {
-          max-height: 200px;
-        }
-        .line-clamp-3 {
-          display: -webkit-box;
-          -webkit-line-clamp: 3;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-        }
-      `}</style>
+/* =====================================================
+   🌌 HRPolicies.jsx - Dark Glass Theme
+===================================================== */
+
+/* ----------------------------
+   Container & Text
+----------------------------- */
+.container-fluid {
+  color: #e5e7eb !important;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6,strong {
+  color: #f8fafc !important;
+  font-weight: 600;
+}
+
+p, span, small, ul, li {
+  color: #c7d2fe !important;
+}
+
+/* ----------------------------
+   Cards & Statistics
+----------------------------- */
+.card {
+  background: rgba(255, 255, 255, 0.06) !important;
+  backdrop-filter: blur(20px) !important;
+  border-radius: 22px !important;
+  border: 1px solid rgba(255,255,255,0.18) !important;
+  color: #e5e7eb !important;
+}
+
+.card h5, .card h6 {
+  color: #f8fafc !important;
+}
+
+.card p, .card small, .card .text-muted {
+  color: #c7d2fe !important;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2) !important;
+}
+
+/* ----------------------------
+   Table
+----------------------------- */
+.table, .table th, .table td {
+  background: rgba(255,255,255,0.05) !important;
+  color: #e5e7eb !important;
+  border-color: rgba(255,255,255,0.15) !important;
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(13,110,253,0.05) !important;
+}
+
+.table-light th {
+  background-color: rgba(255,255,255,0.1) !important;
+  color: #f8fafc !important;
+}
+
+/* ----------------------------
+   Badges
+----------------------------- */
+.badge,
+.badge.bg-primary,
+.badge.bg-secondary,
+.badge.bg-success,
+.badge.bg-warning,
+.badge.bg-danger {
+  background: rgba(255,255,255,.15) !important;
+  color: #fff !important;
+  border-radius: 12px;
+}
+
+.badge.bg-primary { background-color: rgba(13,110,253,.2) !important; color: #0d6efd !important; }
+.badge.bg-secondary { background-color: rgba(108,117,125,.2) !important; color: #6c757d !important; }
+.badge.bg-success { background-color: rgba(25,135,84,.2) !important; color: #198754 !important; }
+.badge.bg-warning { background-color: rgba(255,193,7,.2) !important; color: #ffc107 !important; }
+.badge.bg-danger { background-color: rgba(220,53,69,.2) !important; color: #dc3545 !important; }
+
+/* ----------------------------
+   Buttons
+----------------------------- */
+.btn, .btn-primary, .btn-success, .btn-warning, .btn-outline-primary, .btn-outline-success, .btn-outline-warning, .btn-outline-light, .btn-light {
+  border-radius: 14px;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-outline-light, .btn-light {
+  color: #f8fafc !important;
+  background: rgba(255,255,255,.05) !important;
+  border: 1px solid rgba(255,255,255,.15);
+}
+
+/* ----------------------------
+   Modal
+----------------------------- */
+.modal-content {
+  background: rgba(255, 255, 255, 0.06) !important;
+  backdrop-filter: blur(20px);
+  color: #e5e7eb !important;
+  border-radius: 22px !important;
+  border: 1px solid rgba(255,255,255,0.18) !important;
+}
+
+.modal-header, .modal-footer {
+  border: none !important;
+}
+
+.modal-header {
+  color: #f8fafc !important;
+}
+
+/* ----------------------------
+   Misc
+----------------------------- */
+.cursor-pointer { cursor: pointer; }
+.transition-all { transition: all 0.3s ease; }
+.hover-shadow-lg:hover {
+  box-shadow: 0 1rem 3rem rgba(0,0,0,.175) !important;
+  transform: translateY(-2px);
+}
+`}</style>
+
     </div>
   );
 }

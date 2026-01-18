@@ -1240,160 +1240,442 @@ export default function HRDashboard() {
     </div>
 
       {/* Enhanced Global Styles */}
-      <style>{`
-        .enterprise-dashboard {
-          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        .dashboard-header {
-          background: linear-gradient(135deg, #16043fff 0%, #0d569eff 100%);
-          border-bottom: 1px solid #46627f;
-        }
-        
-        /* Theme Colors */
-        .theme-font-color {
-          color: #16043fff !important;
-        }
-        
-        .theme-badge {
-          background-color: #16043fff !important;
-          color: white !important;
-        }
-        
-        .theme-badge-success {
-          background-color: #198754 !important;
-          color: white !important;
-        }
-        
-        .theme-badge-warning {
-          background-color: #ffc107 !important;
-          color: black !important;
-        }
-        
-        .theme-badge-danger {
-          background-color: #dc3545 !important;
-          color: white !important;
-        }
-        
-        .theme-btn-primary {
-          background: linear-gradient(135deg, #16043fff 0%, #0d569eff 100%);
-          border-color: #16043fff;
-          color: white !important;
-        }
-        
-        .theme-btn-primary:hover {
-          background: linear-gradient(135deg, #0d569eff 0%, #16043fff 100%);
-          border-color: #0d569eff;
-          color: white !important;
-        }
-        
-        /* Different Icon Colors */
-        .theme-icon-primary {
-          color: #16043fff !important;
-        }
-        
-        .theme-icon-warning {
-          color: #ffc107 !important;
-        }
-        
-        .theme-icon-success {
-          color: #198754 !important;
-        }
-        
-        .theme-icon-danger {
-          color: #dc3545 !important;
-        }
-        
-        .theme-icon-info {
-          color: #0dcaf0 !important;
-        }
-        
-        /* Card Hover Effects */
-        .card-hover-effect {
-          transition: all 0.3s ease;
-          border: 1px solid transparent;
-        }
-        
-        .card-hover-effect:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 12px 35px rgba(22, 4, 63, 0.15) !important;
-          border-color: rgba(22, 4, 63, 0.1);
-        }
-        
-        .sidebar-link {
-          border-radius: 8px;
-          margin-bottom: 5px;
-          transition: all 0.3s ease;
-          color: #495057;
-          padding: 12px 15px;
-        }
-        
-        .sidebar-link:hover {
-          background-color: #e9ecef;
-          color: #16043fff;
-          transform: translateX(5px);
-        }
-        
-        .sidebar-link.active {
-          background: linear-gradient(135deg, #16043fff 0%, #0d569eff 100%);
-          color: white;
-          font-weight: 600;
-          box-shadow: 0 2px 10px rgba(22, 4, 63, 0.3);
-        }
-        
-        .quick-action-btn {
-          transition: all 0.3s ease;
-          border: 1px solid #dee2e6;
-          border-radius: 10px;
-        }
-        
-        .quick-action-btn:hover {
-          transform: translateY(-3px);
-          box-shadow: 0 5px 20px rgba(0,0,0,0.15);
-        }
-        
-        .card {
-          border-radius: 12px;
-          transition: all 0.3s ease;
-        }
-        
-        .notification-container {
-          max-width: 400px;
-        }
-        
-        .bg-gradient-primary {
-          background: linear-gradient(135deg, #16043fff 0%, #0d569eff 100%);
-        }
-        
-        @media (max-width: 768px) {
-          .dashboard-sidebar {
-            position: fixed;
-            top: 0;
-            left: -280px;
-            height: 100vh;
-            z-index: 1000;
-            transition: left 0.3s ease;
-          }
-          
-          @media (max-width: 768px) {
-        .dashboard-sidebar {
-          position: fixed;
-          top: 0;
-          left: -280px;
-          width: 280px;
-          height: 100vh;
-          z-index: 1050;
-          transition: left 0.3s ease;
-        }
-        .dashboard-sidebar.show {
-          left: 0;
-        }
-      }
-          .dashboard-sidebar.show {
-            left: 0;
-          }
-        }
-      `}</style>
+    <style>{`
+/* ============================
+   DASHBOARD ROOT (BODY)
+============================ */
+.hr-dashboard.enterprise-dashboard {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(99,102,241,.35), transparent 40%),
+    radial-gradient(circle at 82% 88%, rgba(34,211,238,.25), transparent 45%),
+    linear-gradient(180deg, #050814, #020617);
+  color: #f8fafc;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* ============================
+   HEADER
+============================ */
+.dashboard-header {
+  background: rgba(15,23,42,.75);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255,255,255,.18);
+}
+
+/* ============================
+   SIDEBAR
+============================ */
+.dashboard-sidebar {
+  width: 260px;
+  background: rgba(8,12,30,.75);
+  backdrop-filter: blur(20px);
+  border-right: 1px solid rgba(255,255,255,.18);
+}
+
+.sidebar-link {
+  color: #c7d2fe;
+  padding: 14px 18px;
+  margin-bottom: 6px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  transition: all .25s ease;
+}
+
+.sidebar-link i {
+  color: #818cf8;
+}
+
+.sidebar-link:hover {
+  background: rgba(255,255,255,.08);
+  transform: translateX(6px);
+  color: #fff;
+}
+
+.sidebar-link.active {
+  background: linear-gradient(
+    135deg,
+    rgba(99,102,241,.45),
+    rgba(34,211,238,.45)
+  );
+  color: #fff;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.3);
+}
+
+/* ============================
+   CONTENT AREA
+============================ */
+.dashboard-content {
+  background: transparent;
+}
+
+.dashboard-content-wrapper {
+  background: rgba(255,255,255,.06);
+  backdrop-filter: blur(22px);
+  border-radius: 28px;
+  border: 1px solid rgba(255,255,255,.18);
+  box-shadow: 0 30px 80px rgba(0,0,0,.6);
+  padding: 28px;
+}
+
+/* ============================
+   GLASS CARDS
+============================ */
+.card {
+  background: rgba(255,255,255,.08);
+  backdrop-filter: blur(18px);
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,.2);
+  box-shadow: 0 20px 55px rgba(0,0,0,.45);
+  transition: all .35s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 30px 85px rgba(0,0,0,.7);
+}
+
+/* ============================
+   TABLE
+============================ */
+.table {
+  color: #e0e7ff;
+}
+
+.table thead {
+  background: rgba(255,255,255,.08);
+  color: #fff;
+}
+
+.table tbody tr:hover {
+  background: rgba(255,255,255,.07);
+}
+
+/* ============================
+   BADGES
+============================ */
+.badge {
+  backdrop-filter: blur(6px);
+}
+
+.badge-success {
+  background: rgba(34,197,94,.2);
+  color: #22c55e;
+}
+
+.badge-warning {
+  background: rgba(250,204,21,.22);
+  color: #facc15;
+}
+
+.badge-danger {
+  background: rgba(239,68,68,.22);
+  color: #ef4444;
+}
+
+/* ============================
+   BUTTONS
+============================ */
+.btn {
+  border-radius: 14px;
+}
+
+.btn-primary {
+  background: linear-gradient(
+    135deg,
+    #6366f1,
+    #22d3ee
+  );
+  border: none;
+  box-shadow: 0 10px 35px rgba(99,102,241,.55);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 55px rgba(99,102,241,.75);
+}
+
+/* ============================
+   NOTIFICATIONS
+============================ */
+.notification-container .alert {
+  background: rgba(15,23,42,.85);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255,255,255,.2);
+  color: #fff;
+}
+
+/* ============================
+   MOBILE
+============================ */
+@media (max-width: 768px) {
+  .dashboard-sidebar {
+    position: fixed;
+    z-index: 999;
+    transform: translateX(-100%);
+    transition: transform .3s ease;
+  }
+
+  .dashboard-sidebar.show {
+    transform: translateX(0);
+  }
+}
+  .hr-dashboard * {
+  color: inherit;
+}
+.hr-dashboard.enterprise-dashboard {
+  background:
+    radial-gradient(circle at 20% 10%, rgba(99,102,241,.35), transparent 40%),
+    radial-gradient(circle at 80% 90%, rgba(34,211,238,.25), transparent 45%),
+    linear-gradient(180deg, #050814, #020617) !important;
+  color: #f8fafc;
+}
+.dashboard-sidebar {
+  background: rgba(8,12,30,.85) !important;
+  backdrop-filter: blur(22px);
+  border-right: 1px solid rgba(255,255,255,.18);
+}
+.dashboard-content {
+  background: transparent !important;
+}
+
+.dashboard-content-wrapper {
+  background: rgba(255,255,255,.06);
+  backdrop-filter: blur(22px);
+}
+/* =====================================================
+   🔥 FORCE DARK THEME RESET (BOOTSTRAP OVERRIDE)
+===================================================== */
+
+/* Kill ALL white / light backgrounds inside dashboard */
+.hr-dashboard .bg-white,
+.hr-dashboard .bg-light,
+.hr-dashboard .card.bg-white,
+.hr-dashboard .card.bg-light {
+  background: rgba(255,255,255,.08) !important;
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255,255,255,.18);
+}
+
+/* Kill dark/gray bootstrap text */
+.hr-dashboard .text-dark,
+.hr-dashboard .text-secondary,
+.hr-dashboard .text-muted {
+  color: #c7d2fe !important;
+}
+
+/* Headings ALWAYS bright */
+.hr-dashboard h1,
+.hr-dashboard h2,
+.hr-dashboard h3,
+.hr-dashboard h4,
+.hr-dashboard h5,
+.hr-dashboard h6 {
+  color: #f8fafc !important;
+}
+
+/* KPI CARDS – FIX COMPLETELY */
+.hr-dashboard .kpi,
+.hr-dashboard .kpi.card {
+  background: linear-gradient(
+    135deg,
+    rgba(99,102,241,.25),
+    rgba(34,211,238,.18)
+  ) !important;
+  color: #f8fafc !important;
+  border-radius: 22px;
+  box-shadow: 0 20px 55px rgba(0,0,0,.5);
+}
+
+/* KPI TEXT */
+.hr-dashboard .kpi h6 {
+  color: #c7d2fe !important;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.hr-dashboard .kpi h3 {
+  color: #ffffff !important;
+  font-weight: 700;
+}
+
+/* TABLE SAFETY */
+.hr-dashboard .table,
+.hr-dashboard .table * {
+  color: #e5e7eb !important;
+}
+
+/* CARD SAFETY */
+.hr-dashboard .card,
+.hr-dashboard .card * {
+  color: #e5e7eb;
+}
+/* =====================================================
+   🔥 FINAL REMAINING SECTIONS FIX
+   (System Status, Priority Alert, Recent Activity)
+===================================================== */
+
+/* ---- SYSTEM STATUS / ALERT PANELS ---- */
+.hr-dashboard .alert,
+.hr-dashboard .alert-light,
+.hr-dashboard .alert-secondary {
+  background: rgba(255,255,255,.08) !important;
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255,255,255,.18);
+  color: #e5e7eb !important;
+}
+
+/* Alert headings */
+.hr-dashboard .alert h4,
+.hr-dashboard .alert h5,
+.hr-dashboard .alert h6 {
+  color: #f8fafc !important;
+}
+
+/* ---- PRIORITY ALERT (often card or alert) ---- */
+.hr-dashboard .priority-alert,
+.hr-dashboard .alert-warning,
+.hr-dashboard .alert-danger {
+  background: linear-gradient(
+    135deg,
+    rgba(239,68,68,.25),
+    rgba(250,204,21,.18)
+  ) !important;
+  color: #fff !important;
+  border: 1px solid rgba(255,255,255,.25);
+}
+
+/* ---- CARD HEADERS (System Status title bar) ---- */
+.hr-dashboard .card-header {
+  background: rgba(255,255,255,.07) !important;
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255,255,255,.18);
+  color: #f8fafc !important;
+}
+
+/* ---- LIST GROUP (Recent Claim Activity) ---- */
+.hr-dashboard .list-group,
+.hr-dashboard .list-group-item {
+  background: transparent !important;
+  color: #e5e7eb !important;
+  border-color: rgba(255,255,255,.12);
+}
+
+/* Each activity row */
+.hr-dashboard .list-group-item {
+  background: rgba(255,255,255,.06) !important;
+  backdrop-filter: blur(14px);
+  margin-bottom: 8px;
+  border-radius: 14px;
+}
+
+/* Activity titles */
+.hr-dashboard .list-group-item h6,
+.hr-dashboard .list-group-item strong {
+  color: #f8fafc !important;
+}
+
+/* Activity meta / time / small text */
+.hr-dashboard .list-group-item small,
+.hr-dashboard .list-group-item span {
+  color: #c7d2fe !important;
+}
+
+/* ---- SYSTEM STATUS BADGES ---- */
+.hr-dashboard .badge.bg-success,
+.hr-dashboard .badge.bg-warning,
+.hr-dashboard .badge.bg-danger {
+  background: rgba(255,255,255,.15) !important;
+  color: #fff !important;
+}
+
+/* ---- SAFETY NET (LAST LINE OF DEFENSE) ---- */
+.hr-dashboard .card *,
+.hr-dashboard .alert *,
+.hr-dashboard .list-group-item * {
+  color: inherit;
+}
+/* ============================
+   FULL DARK GLASS DASHBOARD CONTENT OVERRIDE
+============================ */
+
+/* All cards inside dashboard */
+.hr-dashboard .card {
+  background: rgba(255, 255, 255, 0.06) !important; /* glass effect */
+  backdrop-filter: blur(20px) !important;
+  border-radius: 22px !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  color: #e5e7eb !important;
+}
+
+/* Card headers */
+.hr-dashboard .card .card-header {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #f8fafc !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+/* Card bodies */
+.hr-dashboard .card .card-body {
+  background: transparent !important;
+  color: #c7d2fe !important;
+}
+
+/* Tables inside cards */
+.hr-dashboard .card table,
+.hr-dashboard .card thead,
+.hr-dashboard .card tbody,
+.hr-dashboard .card tr,
+.hr-dashboard .card th,
+.hr-dashboard .card td {
+  background: transparent !important;
+  color: #e5e7eb !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+/* Alerts inside cards */
+.hr-dashboard .card .alert {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #f8fafc !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+/* Badges inside cards */
+.hr-dashboard .card .badge {
+  background: rgba(255, 255, 255, 0.15) !important;
+  color: #fff !important;
+  border-radius: 12px;
+}
+
+/* Headings and strong text inside cards */
+.hr-dashboard .card h5,
+.hr-dashboard .card h6,
+.hr-dashboard .card strong {
+  color: #f8fafc !important;
+  font-weight: 600;
+}
+
+/* Small / meta text inside cards */
+.hr-dashboard .card small,
+.hr-dashboard .card p,
+.hr-dashboard .card span {
+  color: #c7d2fe !important;
+}
+
+/* Tables hover effect */
+.hr-dashboard .card table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.12) !important;
+}
+
+/* Priority badges colors override */
+.hr-dashboard .badge.bg-success { background-color: rgba(34,197,94,.2) !important; color: #16a34a !important; }
+.hr-dashboard .badge.bg-warning { background-color: rgba(234,179,8,.2) !important; color: #ca8a04 !important; }
+.hr-dashboard .badge.bg-danger { background-color: rgba(239,68,68,.2) !important; color: #b91c1c !important; }
+
+
+`}</style>
+
     </div>
   );
 }
